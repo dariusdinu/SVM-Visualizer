@@ -480,6 +480,7 @@ class Ui_ThirdWindow(object):
         x = classification_report(self.y_test, self.y_pred,target_names=[self.firstLabel,self.secondLabel])
         self.completeClassReport = x
         self.classificationReport = x.split()
+        plt.close(self.figure)
 
     def slide(self):
         self.trainingSampleValueLabel.setText(str(self.trainingSampleSlider.value()) + str('%'))
