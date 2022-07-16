@@ -1,0 +1,14 @@
+Weights assigned to the features:
+Available only for Linear Kernel
+Constants in the decision function:
+b = [-9.27025929]
+Indices of support vectors:
+[45 61 12]
+Support vectors:
+[[5.7 3.8]
+ [4.5 2.3]
+ [4.9 2.4]]
+Number of support vectors for each class:
+[2 1]
+Dual coefficients of the support vector in the decision function:
+[[2.97153934e-05 1.47152946e-04 1.76868339e-04]]

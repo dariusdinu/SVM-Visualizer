@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1043</width>
+    <height>783</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>SVM Vizualizer</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../Facultate/Licenta/dot-crossed_icon-icons.com_68558.ico</normaloff>../Facultate/Licenta/dot-crossed_icon-icons.com_68558.ico</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">*{
+	font-family:century gohtic;
+}
+
+QFrame[accessibleName=&quot;frameMain&quot;]{
+	background:rgb(223, 223, 223);
+	border-radius:15px;
+}
+
+QFrame[accessibleName=&quot;bottomFrame&quot;],QFrame[accessibleName=&quot;topFrame&quot;]{
+	background:rgb(244, 244, 244);
+	border-radius:15px;
+}
+
+QLabel[accessibleName=&quot;titleLabel&quot;]{
+	color:rgb(0, 51, 69);
+	margin:10px;
+	font-size:40px;
+	font-weight:bold;
+}
+
+QLabel[accessibleName=&quot;image1Label&quot;],QLabel[accessibleName=&quot;image2Label&quot;],QLabel[accessibleName=&quot;image3Label&quot;]{
+	margin:10px;
+	font-size:40px;
+	font-weight:bold;
+	background:rgb(27, 134, 151);
+	border-radius:100%;
+}
+
+QLabel[accessibleName=&quot;image1Label&quot;]:hover,QLabel[accessibleName=&quot;image2Label&quot;]:hover,QLabel[accessibleName=&quot;image3Label&quot;]:hover{
+	margin:10px;
+	font-size:40px;
+	font-weight:bold;
+	background:rgb(15, 100, 117);
+	border-radius:100%;
+}
+
+QPushButton[accessibleName=&quot;btnStart&quot;]{
+	background:rgb(27, 134, 151);
+	border-radius:10px;
+	padding:30%;
+	margin:10px;
+	font-size:30px;
+	margin-right:50%;	
+	margin-left:50%;
+	color:white;
+}
+
+QPushButton[accessibleName=&quot;btnStart&quot;]:hover{
+	background:rgb(15, 100, 117);
+	border-radius:10px;
+	padding:10px;
+	margin:10px;
+	margin-right:40%;	
+	margin-left:40%;
+}</string>
+  </property>
+  <property name="documentMode">
+   <bool>false</bool>
+  </property>
+  <property name="tabShape">
+   <enum>QTabWidget::Rounded</enum>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <widget class="QFrame" name="mainFrame">
+      <property name="accessibleName">
+       <string>frameMain</string>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QFrame" name="topFrame">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="accessibleName">
+          <string>topFrame</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QGridLayout" name="gridLayout">
+          <item row="0" column="0">
+           <widget class="QLabel" name="titleLabel">
+            <property name="accessibleName">
+             <string>titleLabel</string>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="text">
+             <string>SVM Vizualizer</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="bottomFrame">
+         <property name="accessibleName">
+          <string>bottomFrame</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_4">
+          <item row="0" column="0">
+           <widget class="QFrame" name="frame_3">
+            <property name="minimumSize">
+             <size>
+              <width>230</width>
+              <height>300</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>350</width>
+              <height>250</height>
+             </size>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_5">
+             <item row="0" column="0">
+              <widget class="QLabel" name="image1Label">
+               <property name="minimumSize">
+                <size>
+                 <width>220</width>
+                 <height>220</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>220</width>
+                 <height>220</height>
+                </size>
+               </property>
+               <property name="accessibleName">
+                <string>image1Label</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="pixmap">
+                <pixmap>scatter_chart_icon_215551.ico</pixmap>
+               </property>
+               <property name="scaledContents">
+                <bool>false</bool>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QFrame" name="frame">
+            <property name="minimumSize">
+             <size>
+              <width>250</width>
+              <height>300</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>350</width>
+              <height>250</height>
+             </size>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_2">
+             <item row="0" column="1">
+              <widget class="QLabel" name="image2Label">
+               <property name="minimumSize">
+                <size>
+                 <width>220</width>
+                 <height>220</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>220</width>
+                 <height>220</height>
+                </size>
+               </property>
+               <property name="accessibleName">
+                <string>image2Label</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="pixmap">
+                <pixmap>rotateaxisxy_120494.ico</pixmap>
+               </property>
+               <property name="scaledContents">
+                <bool>false</bool>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QFrame" name="frame_4">
+            <property name="minimumSize">
+             <size>
+              <width>230</width>
+              <height>300</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>350</width>
+              <height>250</height>
+             </size>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_6">
+             <item row="0" column="0">
+              <widget class="QLabel" name="image3Label">
+               <property name="minimumSize">
+                <size>
+                 <width>220</width>
+                 <height>220</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>220</width>
+                 <height>220</height>
+                </size>
+               </property>
+               <property name="accessibleName">
+                <string>image3Label</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="pixmap">
+                <pixmap>levels (3).png</pixmap>
+               </property>
+               <property name="scaledContents">
+                <bool>false</bool>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="1" column="0" colspan="3">
+           <widget class="QFrame" name="frame_2">
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_3">
+             <item row="0" column="0">
+              <widget class="QPushButton" name="pushButton">
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="accessibleName">
+                <string>btnStart</string>
+               </property>
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
+               <property name="text">
+                <string>Start</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

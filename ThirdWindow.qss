@@ -1,0 +1,151 @@
+*{
+	border:none;
+	border-radius:15px;
+	font-family:century gohtic;
+}
+
+QFrame[accessibleName="bodyFrame"]{
+	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(191, 186, 181, 255), stop:1 rgba(231, 227, 223, 255));
+}
+
+QFrame[accessibleName="mainFrame"]{
+	background-color:rgb(244, 244, 244);
+}
+
+QFrame[accessibleName="titleFrame"]{
+	background-color:rgb(244, 244, 244);
+}
+
+QFrame[accessibleName="rightTopFrame"],QFrame[accessibleName="rightBottomFrame"],QFrame[accessibleName="accuracyFrame"]{
+	background-color:rgb(244, 244, 244);
+}
+
+QLabel[accessibleName="titleLabel"]{
+	font-size:40px;
+	margin:10px;
+	font-weight:bold;
+	color:rgb(0, 51, 69);
+}
+
+QLabel[accessibleName="kernelTypeLabel"],QLabel[accessibleName="adjustLabel"],QLabel[accessibleName="cLabel"],QLabel[accessibleName="gammaLabel"],QLabel[accessibleName="degreeLabel"],QLabel[accessibleName="trainingSampleLabel"],QLabel[accessibleName="trainingSampleValueLabel"],QLabel[accessibleName="accuracyLabel"],QLabel[accessibleName="accuracyValueLabel"]{
+	font-size:20px;
+	font-weight:bold;
+	color:rgb(0, 51, 69);
+}
+
+QLabel[accessibleName="degreeLabel"]{
+	font-size:20px;
+	font-weight:bold;
+	color:#7e7e7e;
+}
+
+
+QFrame[accessibleName="rightFrame"],QFrame[accessibleName="leftFrame"]{
+	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(191, 186, 181, 255), stop:1 rgba(231, 227, 223, 255));;
+}
+
+QFrame[accessibleName="leftTopFrame"],QFrame[accessibleName="leftBottomFrame"]{
+	background-color:rgb(244, 244, 244);
+}
+
+QPushButton[accessibleName="confusionMatrixButton"],QPushButton[accessibleName="view3DButton"],QPushButton[accessibleName="reportButton"],QPushButton[accessibleName="resultsButton"],QPushButton[accessibleName="loadDataButton"]{
+	background-color:rgb(27, 134, 151);
+	padding:15%;
+	border-radius:10px;
+	font-size:20px;
+	margin:1%;
+	color:white;
+}
+
+QPushButton[accessibleName="displayAllButton"]{
+	background-color:rgb(27, 134, 151);
+	border-radius:10px;
+	font-size:20px;
+	padding:10%;
+	color:white;
+}
+
+QPushButton[accessibleName="displayAllButton"]:hover{
+	background-color:rgb(15, 100, 117);
+	padding:5%;
+	border-radius:10px;
+	margin-left:10%;
+	margin-right:10%;
+	font-size:18px;
+	color:white;
+}
+
+QPushButton[accessibleName="confusionMatrixButton"]:hover,QPushButton[accessibleName="view3DButton"]:hover,QPushButton[accessibleName="reportButton"]:hover,QPushButton[accessibleName="resultsButton"]:hover,QPushButton[accessibleName="loadDataButton"]:hover{
+	background-color:rgb(15, 100, 117);
+	padding:10%;
+	border-radius:10px;
+	font-size:18px;
+	margin:4%;
+}
+
+QRadioButton{
+	background-color:rgb(27, 134, 151);
+	padding:10%;
+	border-radius:10px;
+	font-size:18px;
+	color:white;
+}
+
+QRadioButton:hover{
+	background-color:rgb(15, 100, 117);
+	padding:10%;
+	border-radius:10px;
+	font-size:20px;
+}
+
+QLineEdit{
+	background-color:white;
+	border-radius:10px;
+	padding: 10%;
+	font-size:15px;
+	font-weight:bold;
+	font-family:century gohtic;
+	color:rgb(27, 134, 151);
+}
+
+QLineEdit[accessibleName="degreeValueLineEdit"]{
+    background-color:#e0e0e0;
+}
+
+QLineEdit:hover{
+	background-color:rgb(223, 223, 223);
+	border-radius:10px;
+	padding: 10%;
+	font-size:15px;
+	font-weight:bold;
+	font-family:century gohtic;
+	color:rgb(27, 134, 151);
+}
+
+QPushButton[accessibleName="infoGammaButton"],QPushButton[accessibleName="infoCButton"],QPushButton[accessibleName="infoDegreeButton"]{
+    font-size:18px;
+	border: 3px solid rgb(27, 134, 151);
+	color: rgb(27, 134, 151)
+}
+
+QSlider {
+   	border-radius: 10px;
+}
+
+QSlider::groove {
+	background: white;
+	height:20px;
+	border-radius:10px;
+}
+
+QSlider::handle {
+	background-color: rgb(27, 134, 151);
+    width: 30px;
+	border-radius:10px;
+}
+
+QSlider::handle:hover {
+	background-color: rgb(0, 51, 69);
+    width: 30px;
+	border-radius:10px;
+}

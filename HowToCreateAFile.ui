@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>HowToCreateAFile</class>
+ <widget class="QMainWindow" name="HowToCreateAFile">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1028</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>SVM Visualizer</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">*{
+	font-family:century gohtic;
+}
+
+QFrame[accessibleName=&quot;mainFrame&quot;]{
+	background:rgb(223, 223, 223);
+	border-radius:15px;
+}
+
+QFrame[accessibleName=&quot;bottomFrame&quot;],QFrame[accessibleName=&quot;topFrame&quot;]{
+	background:rgb(244, 244, 244);
+	border-radius:15px;
+}
+
+QLabel[accessibleName=&quot;titleLabel&quot;]{
+	color:rgb(0, 51, 69);
+	margin:10px;
+	font-size:40px;
+	font-weight:bold;
+}
+
+QLabel[accessibleName=&quot;targetNameLabel&quot;],QLabel[accessibleName=&quot;targetLabel&quot;],QLabel[accessibleName=&quot;firstFeatureLabel&quot;],QLabel[accessibleName=&quot;secondFeatureLabel&quot;],QLabel[accessibleName=&quot;dotsLabel&quot;],QLabel[accessibleName=&quot;lastFeatureLabel&quot;]{
+	color:white;
+	background:rgb(27, 134, 151);
+	font-size:16px;
+	height: 50px;
+	border-radius:15px;
+	font-weight:bold;
+}
+
+QFrame[accessibleName=&quot;headFrame&quot;], QFrame[accessibleName=&quot;cellsExplainedFrame&quot;], QFrame[accessibleName=&quot;notesFrame&quot;]{
+	color:rgb(27, 134, 151);
+	background:rgb(244, 244, 244);
+	font-size:22x;
+	border-radius:15px;
+	font-weight:bold;
+}
+
+QLabel[accessibleName=&quot;noticeLabel&quot;]{
+	color:rgb(0, 51, 69);
+	background:rgb(244, 244, 244);
+	font-size:16px;
+	padding-left: 10%;
+	border-radius:15px;
+	font-weight:bold;
+}
+
+QLabel[accessibleName=&quot;noteLabel&quot;]{
+	color:rgb(27, 134, 151);
+	font-size:14px;
+	font-weight:bold;
+}
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QFrame" name="mainFrame">
+      <property name="accessibleName">
+       <string>mainFrame</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QFrame" name="topFrame">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="accessibleName">
+          <string>topFrame</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item>
+           <widget class="QLabel" name="titleLabel">
+            <property name="accessibleName">
+             <string>titleLabel</string>
+            </property>
+            <property name="text">
+             <string>SVM Visualizer</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="headFrame">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="accessibleName">
+          <string>headFrame</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <widget class="QLabel" name="targetNameLabel">
+            <property name="accessibleName">
+             <string>targetNameLabel</string>
+            </property>
+            <property name="text">
+             <string>TargetName</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="targetLabel">
+            <property name="accessibleName">
+             <string>targetLabel</string>
+            </property>
+            <property name="text">
+             <string>Target</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="firstFeatureLabel">
+            <property name="accessibleName">
+             <string>firstFeatureLabel</string>
+            </property>
+            <property name="text">
+             <string>FirstFeature</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="secondFeatureLabel">
+            <property name="accessibleName">
+             <string>secondFeatureLabel</string>
+            </property>
+            <property name="text">
+             <string>SecondFeature</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="dotsLabel">
+            <property name="accessibleName">
+             <string>dotsLabel</string>
+            </property>
+            <property name="text">
+             <string>...</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="lastFeatureLabel">
+            <property name="accessibleName">
+             <string>lastFeatureLabel</string>
+            </property>
+            <property name="text">
+             <string>LastFeature</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="cellsExplainedFrame">
+         <property name="accessibleName">
+          <string>cellsExplainedFrame</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <item>
+           <widget class="QLabel" name="targetNoteLabel">
+            <property name="accessibleName">
+             <string>noteLabel</string>
+            </property>
+            <property name="text">
+             <string>● Target - the values of the classes (0 and 1)</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="targetNameNoteLabel">
+            <property name="accessibleName">
+             <string>noteLabel</string>
+            </property>
+            <property name="text">
+             <string>● TargetName - Column that contains the names of the classes that each value belongs to</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="featuresNoteLabel">
+            <property name="accessibleName">
+             <string>noteLabel</string>
+            </property>
+            <property name="text">
+             <string>● FirstFeature, SecondFeature, ... - columns with the values of each features</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="noticeLabel">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="accessibleName">
+          <string>noticeLabel</string>
+         </property>
+         <property name="text">
+          <string>Things to keep in mind when creating a file for SVM Visualizer:</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="notesFrame">
+         <property name="accessibleName">
+          <string>notesFrame</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_6">
+          <item>
+           <widget class="QLabel" name="noteLabel_4">
+            <property name="accessibleName">
+             <string>noteLabel</string>
+            </property>
+            <property name="text">
+             <string>● The name of each of the header cells must not contain spaces </string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="noteLabel_5">
+            <property name="accessibleName">
+             <string>noteLabel</string>
+            </property>
+            <property name="text">
+             <string>● &quot;TargetName&quot; and &quot;Target&quot; must be present in order for the program to work properly</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="noteLabel_6">
+            <property name="accessibleName">
+             <string>noteLabel</string>
+            </property>
+            <property name="text">
+             <string>● The order of the columns must be respected in order for the program to work properly</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

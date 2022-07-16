@@ -1,0 +1,52 @@
+*{
+	font-family:century gohtic;
+}
+
+QFrame[accessibleName="mainFrame"]{
+	background:rgb(223, 223, 223);
+	border-radius:15px;
+}
+
+QFrame[accessibleName="bottomFrame"],QFrame[accessibleName="topFrame"]{
+	background:rgb(244, 244, 244);
+	border-radius:15px;
+}
+
+QLabel[accessibleName="titleLabel"]{
+	color:rgb(0, 51, 69);
+	margin:10px;
+	font-size:40px;
+	font-weight:bold;
+}
+
+QLabel[accessibleName="targetNameLabel"],QLabel[accessibleName="targetLabel"],QLabel[accessibleName="firstFeatureLabel"],QLabel[accessibleName="secondFeatureLabel"],QLabel[accessibleName="dotsLabel"],QLabel[accessibleName="lastFeatureLabel"]{
+	color:white;
+	background:rgb(27, 134, 151);
+	font-size:16px;
+	height: 50px;
+	border-radius:15px;
+	font-weight:bold;
+}
+
+QFrame[accessibleName="headFrame"], QFrame[accessibleName="cellsExplainedFrame"], QFrame[accessibleName="notesFrame"]{
+	color:rgb(27, 134, 151);
+	background:rgb(244, 244, 244);
+	font-size:22x;
+	border-radius:15px;
+	font-weight:bold;
+}
+
+QLabel[accessibleName="noticeLabel"]{
+	color:rgb(0, 51, 69);
+	background:rgb(244, 244, 244);
+	font-size:20px;
+	padding-left: 10%;
+	border-radius:15px;
+	font-weight:bold;
+}
+
+QLabel[accessibleName="noteLabel"]{
+	color:rgb(27, 134, 151);
+	font-size:18px;
+	font-weight:bold;
+}

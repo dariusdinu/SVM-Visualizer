@@ -1,0 +1,54 @@
+*{
+	border:none;
+	border-radius:15px;
+	font-family:century gohtic;
+}
+
+QFrame[accessibleName="mainFrame"]{
+	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(191, 186, 181, 255), stop:1 rgba(231, 227, 223, 255));
+}
+
+QFrame[accessibleName="titleFrame"],QFrame[accessibleName="tableFrame"]{
+	background-color:rgb(244, 244, 244);
+}
+
+QPushButton[accessibleName="saveButton"],QPushButton[accessibleName="LoadButton"]{
+	background:rgb(27, 134, 151);
+	border-radius:10px;
+	padding:20%;
+	margin:10px;
+	font-size:20px;
+	color:white;
+}
+
+QPushButton[accessibleName="saveButton"]:hover,QPushButton[accessibleName="LoadButton"]:hover{
+	background:rgb(15, 100, 117);
+	border-radius:10px;
+	padding:15%;
+	margin:10px;
+	font-size:18px;
+	color:white;
+}
+
+QLabel[accessibleName="titleLabel"]{
+	font-size:40px;
+	margin:10px;
+	font-weight:bold;
+	color:rgb(0, 51, 69);
+}
+
+QLabel[accessibleName="outerLabel"]{
+	font-size:20px;
+	font-weight:bold;
+	color:rgb(0, 51, 69);
+	padding:10px;
+	background-color:rgb(244, 244, 244);
+}
+
+QLabel[accessibleName="innerLabel"]{
+	font-size:18px;
+	font-weight:bold;
+	color:rgb(27, 134, 151);
+	padding:10px;
+	background-color:rgb(244, 244, 244);
+}

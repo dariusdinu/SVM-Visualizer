@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CheckResultsWindow</class>
+ <widget class="QMainWindow" name="CheckResultsWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>862</width>
+    <height>802</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>SVM Visualizer</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">*{
+	border:none;
+	border-radius:15px;
+	font-family:century gohtic;
+}
+
+QFrame[accessibleName=&quot;bodyFrame&quot;]{
+	background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(191, 186, 181, 255), stop:1 rgba(231, 227, 223, 255));
+}
+
+QFrame[accessibleName=&quot;titleFrame&quot;]{
+	background-color:rgb(244, 244, 244);
+}
+
+QFrame[accessibleName=&quot;saveFrame&quot;]{
+	background-color:rgb(244, 244, 244);
+}
+
+QScrollArea{
+	background-color:rgb(244, 244, 244);
+}
+
+QLabel[accessibleName=&quot;titleLabel&quot;]{
+	font-size:40px;
+	margin:10px;
+	font-weight:bold;
+	color:rgb(0, 51, 69);
+}
+
+QLabel[accessibleName=&quot;wLabel&quot;],QLabel[accessibleName=&quot;bLabel&quot;],QLabel[accessibleName=&quot;indicesLabel&quot;],QLabel[accessibleName=&quot;vectorsLabel&quot;],QLabel[accessibleName=&quot;noSVLabel&quot;],QLabel[accessibleName=&quot;coefLabel&quot;]{
+	font-size:18px;
+	font-weight:bold;
+	color:rgb(0, 51, 69);
+	padding:10px;
+	background-color:rgb(244, 244, 244);
+}
+
+QLabel[accessibleName=&quot;wTextLabel&quot;],QLabel[accessibleName=&quot;bTextLabel&quot;],QLabel[accessibleName=&quot;indicesTextLabel&quot;],QLabel[accessibleName=&quot;vectorsTextLabel&quot;],QLabel[accessibleName=&quot;noSVTextLabel&quot;],QLabel[accessibleName=&quot;coefTextLabel&quot;]{
+	font-size:18px;
+	font-weight:bold;
+	color:rgb(27, 134, 151);
+	padding:10px;
+	margin-left:10px;
+	margin-right:10px;
+	background-color:rgb(244, 244, 244);
+}
+
+QScrollArea{
+	background-color:rgba(244, 244, 244, 0);
+}
+
+QPushButton[accessibleName=&quot;saveTextButton&quot;],QPushButton[accessibleName=&quot;LoadTextButton&quot;]{
+	background:rgb(27, 134, 151);
+	border-radius:10px;
+	padding:20%;
+	margin:10px;
+	font-size:20px;
+	color:white;
+}
+
+QPushButton[accessibleName=&quot;saveTextButton&quot;]:hover,QPushButton[accessibleName=&quot;LoadTextButton&quot;]:hover{
+	background:rgb(15, 100, 117);
+	border-radius:10px;
+	padding:15%;
+	margin:10px;
+	font-size:18px;
+	color:white;
+}
+
+QLineEdit{	
+	margin-left:10px;
+	margin-right:10px;
+	background-color:white;
+	border-radius:10px;
+	padding: 10%;
+}
+
+QLineEdit:hover{
+	background-color:rgb(223, 223, 223);
+	border-radius:10px;
+	padding: 10%;
+}
+
+QScrollBar:horizontal
+{
+        height: 20px;
+        margin: 3px 15px 3px 15px;
+        border: 1px transparent #2A2929;
+        border-radius: 6px;
+        background-color: rgb(0, 51, 69);    /* #2A2929; */
+}
+
+    QScrollBar::handle:horizontal
+    {
+        background-color: rgb(27, 134, 151);      /* #605F5F; */
+        min-width: 5px;
+        border-radius: 6px;
+    }
+
+    QScrollBar::add-line:horizontal
+    {
+        margin: 0px 3px 0px 3px;
+        border-image: url(:/qss_icons/rc/right_arrow_disabled.png);
+        width: 10px;
+        height: 10px;
+        subcontrol-position: right;
+        subcontrol-origin: margin;
+    }
+
+    QScrollBar::sub-line:horizontal
+    {
+        margin: 0px 3px 0px 3px;
+        border-image: url(:/qss_icons/rc/left_arrow_disabled.png);
+        height: 10px;
+        width: 10px;
+        subcontrol-position: left;
+        subcontrol-origin: margin;
+    }
+
+    QScrollBar::add-line:horizontal:hover,QScrollBar::add-line:horizontal:on
+    {
+        border-image: url(:/qss_icons/rc/right_arrow.png);
+        height: 10px;
+        width: 10px;
+        subcontrol-position: right;
+        subcontrol-origin: margin;
+    }
+
+
+    QScrollBar::sub-line:horizontal:hover, QScrollBar::sub-line:horizontal:on
+    {
+        border-image: url(:/qss_icons/rc/left_arrow.png);
+        height: 10px;
+        width: 10px;
+        subcontrol-position: left;
+        subcontrol-origin: margin;
+    }
+
+    QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal
+    {
+        background: none;
+    }
+
+
+    QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal
+    {
+        background: none;
+    }
+
+    QScrollBar:vertical
+    {
+        background-color: rgb(0, 51, 69);
+        width: 20px;
+        margin: 15px 3px 15px 3px;
+        border: 1px transparent #2A2929;
+        border-radius: 6px;
+    }
+
+    QScrollBar::handle:vertical
+    {
+        background-color: rgb(27, 134, 151);         /* #605F5F; */
+        min-height: 5px;
+        border-radius: 6px;
+    }
+
+    QScrollBar::sub-line:vertical
+    {
+        margin: 3px 0px 3px 0px;
+        border-image: url(:/qss_icons/rc/up_arrow_disabled.png);
+        height: 10px;
+        width: 10px;
+        subcontrol-position: top;
+        subcontrol-origin: margin;
+    }
+
+    QScrollBar::add-line:vertical
+    {
+        margin: 3px 0px 3px 0px;
+        border-image: url(:/qss_icons/rc/down_arrow_disabled.png);
+        height: 10px;
+        width: 10px;
+        subcontrol-position: bottom;
+        subcontrol-origin: margin;
+    }
+
+    QScrollBar::sub-line:vertical:hover,QScrollBar::sub-line:vertical:on
+    {
+        border-image: url(:/qss_icons/rc/up_arrow.png);
+        height: 10px;
+        width: 10px;
+        subcontrol-position: top;
+        subcontrol-origin: margin;
+    }
+
+    QScrollBar::add-line:vertical:hover, QScrollBar::add-line:vertical:on
+    {
+        border-image: url(:/qss_icons/rc/down_arrow.png);
+        height: 10px;
+        width: 10px;
+        subcontrol-position: bottom;
+        subcontrol-origin: margin;
+    }
+
+    QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical
+    {
+        background: none;
+    }
+
+    QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical
+    {
+        background: none;
+    }
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QFrame" name="bodyFrame">
+      <property name="accessibleName">
+       <string>bodyFrame</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QFrame" name="titleFrame">
+         <property name="accessibleName">
+          <string>titleFrame</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <widget class="QLabel" name="titleLabel">
+            <property name="accessibleName">
+             <string>titleLabel</string>
+            </property>
+            <property name="text">
+             <string>SVM Visualizer</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QScrollArea" name="scrollArea">
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>798</width>
+            <height>603</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <item>
+            <widget class="QLabel" name="wLabel">
+             <property name="accessibleName">
+              <string>wLabel</string>
+             </property>
+             <property name="text">
+              <string>Weights assigned to the features:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="wTextLabel">
+             <property name="accessibleName">
+              <string>wTextLabel</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="bLabel">
+             <property name="accessibleName">
+              <string>bLabel</string>
+             </property>
+             <property name="text">
+              <string>Constants in the decision function:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="bTextLabel">
+             <property name="accessibleName">
+              <string>bTextLabel</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="indicesLabel">
+             <property name="accessibleName">
+              <string>indicesLabel</string>
+             </property>
+             <property name="text">
+              <string>Indices of support vectors:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="indicesTextLabel">
+             <property name="accessibleName">
+              <string>indicesTextLabel</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="vectorsLabel">
+             <property name="accessibleName">
+              <string>vectorsLabel</string>
+             </property>
+             <property name="text">
+              <string>Support vectors:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="vectorsTextLabel">
+             <property name="accessibleName">
+              <string>vectorsTextLabel</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="noSVLabel">
+             <property name="accessibleName">
+              <string>noSVLabel</string>
+             </property>
+             <property name="text">
+              <string>Number of support vectors for each class:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="noSVTextLabel">
+             <property name="accessibleName">
+              <string>noSVTextLabel</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="coefLabel">
+             <property name="accessibleName">
+              <string>coefLabel</string>
+             </property>
+             <property name="text">
+              <string>Dual coefficients of the support vector in the decision function</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="coefTextLabel">
+             <property name="accessibleName">
+              <string>coefTextLabel</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="LoadTextButton">
+         <property name="accessibleName">
+          <string>LoadTextButton</string>
+         </property>
+         <property name="text">
+          <string>Load</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="saveFrame">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>120</height>
+          </size>
+         </property>
+         <property name="accessibleName">
+          <string>saveFrame</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <item>
+           <widget class="QLineEdit" name="lineEdit">
+            <property name="frame">
+             <bool>true</bool>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="placeholderText">
+             <string>Type here the name of the file in which you want to save the result</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="saveTextButton">
+            <property name="accessibleName">
+             <string>saveTextButton</string>
+            </property>
+            <property name="text">
+             <string>Save</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
