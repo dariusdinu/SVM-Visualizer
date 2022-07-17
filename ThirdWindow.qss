@@ -48,7 +48,7 @@ QFrame[accessibleName="leftTopFrame"],QFrame[accessibleName="leftBottomFrame"]{
 	background-color:rgb(244, 244, 244);
 }
 
-QPushButton[accessibleName="confusionMatrixButton"],QPushButton[accessibleName="view3DButton"],QPushButton[accessibleName="reportButton"],QPushButton[accessibleName="resultsButton"],QPushButton[accessibleName="loadDataButton"]{
+QPushButton[accessibleName="saveImageButton"],QPushButton[accessibleName="confusionMatrixButton"],QPushButton[accessibleName="view3DButton"],QPushButton[accessibleName="reportButton"],QPushButton[accessibleName="resultsButton"],QPushButton[accessibleName="loadDataButton"]{
 	background-color:rgb(27, 134, 151);
 	padding:15%;
 	border-radius:10px;
@@ -75,7 +75,7 @@ QPushButton[accessibleName="displayAllButton"]:hover{
 	color:white;
 }
 
-QPushButton[accessibleName="confusionMatrixButton"]:hover,QPushButton[accessibleName="view3DButton"]:hover,QPushButton[accessibleName="reportButton"]:hover,QPushButton[accessibleName="resultsButton"]:hover,QPushButton[accessibleName="loadDataButton"]:hover{
+QPushButton[accessibleName="saveImageButton"]:hover,QPushButton[accessibleName="confusionMatrixButton"]:hover,QPushButton[accessibleName="view3DButton"]:hover,QPushButton[accessibleName="reportButton"]:hover,QPushButton[accessibleName="resultsButton"]:hover,QPushButton[accessibleName="loadDataButton"]:hover{
 	background-color:rgb(15, 100, 117);
 	padding:10%;
 	border-radius:10px;

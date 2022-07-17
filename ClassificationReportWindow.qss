@@ -12,7 +12,11 @@ QFrame[accessibleName="titleFrame"],QFrame[accessibleName="tableFrame"]{
 	background-color:rgb(244, 244, 244);
 }
 
-QPushButton[accessibleName="saveButton"],QPushButton[accessibleName="LoadButton"]{
+QFrame[accessibleName="saveFrame"]{
+	background-color:rgb(244, 244, 244);
+}
+
+QPushButton[accessibleName="saveButton"],QPushButton[accessibleName="LoadTextButton"]{
 	background:rgb(27, 134, 151);
 	border-radius:10px;
 	padding:20%;
@@ -21,7 +25,7 @@ QPushButton[accessibleName="saveButton"],QPushButton[accessibleName="LoadButton"
 	color:white;
 }
 
-QPushButton[accessibleName="saveButton"]:hover,QPushButton[accessibleName="LoadButton"]:hover{
+QPushButton[accessibleName="saveButton"]:hover,QPushButton[accessibleName="LoadTextButton"]:hover{
 	background:rgb(15, 100, 117);
 	border-radius:10px;
 	padding:15%;
@@ -51,4 +55,22 @@ QLabel[accessibleName="innerLabel"]{
 	color:rgb(27, 134, 151);
 	padding:10px;
 	background-color:rgb(244, 244, 244);
+}
+
+QLineEdit{
+	margin-left:10px;
+	margin-right:10px;
+	background-color:white;
+	border-radius:10px;
+	font-size:18px;
+	font-weight:bold;
+	font-family:century gohtic;
+	color:rgb(27, 134, 151);
+	padding: 10%;
+}
+
+QLineEdit:hover{
+	background-color:rgb(223, 223, 223);
+	border-radius:10px;
+	padding: 10%;
 }

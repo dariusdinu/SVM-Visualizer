@@ -132,7 +132,7 @@ class Ui_HowToCreateAFile(object):
         self.lastFeatureLabel.setText(_translate("HowToCreateAFile", "LastFeature"))
         self.cellsExplainedFrame.setAccessibleName(_translate("HowToCreateAFile", "cellsExplainedFrame"))
         self.targetNoteLabel.setAccessibleName(_translate("HowToCreateAFile", "noteLabel"))
-        self.targetNoteLabel.setText(_translate("HowToCreateAFile", "● Target - the values of the classes (0 and 1)"))
+        self.targetNoteLabel.setText(_translate("HowToCreateAFile", "● Target - the value of the classes (0 and 1)"))
         self.targetNameNoteLabel.setAccessibleName(_translate("HowToCreateAFile", "noteLabel"))
         self.targetNameNoteLabel.setText(_translate("HowToCreateAFile", "● TargetName - column that contains the names of the classes that each value belongs to"))
         self.featuresNoteLabel.setAccessibleName(_translate("HowToCreateAFile", "noteLabel"))

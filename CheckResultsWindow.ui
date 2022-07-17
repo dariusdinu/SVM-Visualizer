@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>862</width>
-    <height>802</height>
+    <width>866</width>
+    <height>811</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -286,7 +286,7 @@ QScrollBar:horizontal
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>798</width>
+            <width>802</width>
             <height>603</height>
            </rect>
           </property>

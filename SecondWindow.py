@@ -38,6 +38,8 @@ class Ui_SecondWindow(object):
             self.ui.color1 = self.color1
             self.ui.color2 = self.color2
             self.ui.randomGenerated = self.randomGenerated
+            self.ui.randomX = self.randomX
+            self.ui.randomy = self.randomy
 
     plt.rcParams.update({'font.family': 'Century Gothic'})  # setting the font for all elements of the plot
 
@@ -67,6 +69,8 @@ class Ui_SecondWindow(object):
         self.firstLabel = None
         self.secondLabel = None
         self.randomGenerated = False
+        self.randomX = None
+        self.randomy = None
 
         self.centralwidget = QtWidgets.QWidget(SecondWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -368,6 +372,9 @@ class Ui_SecondWindow(object):
             X, y = make_moons(n_samples=200, noise=0.15)
         elif random.choice(plotModels) == 3:
             X, y = make_circles(n_samples=200, noise=0.1)
+
+        self.randomX = X
+        self.randomy = y
 
         data = DataFrame(dict(x=X[:, 0], y=X[:, 1], Target=y))
         data.sort_values(by=['Target'], inplace=True)

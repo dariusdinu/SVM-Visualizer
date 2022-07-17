@@ -11,6 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PySide2.QtWidgets import *
 
+
 class Ui_ClassificationReportWindow(object):
     def setupUi(self, ClassificationReportWindow):
         ClassificationReportWindow.setObjectName("ClassificationReportWindow")
@@ -25,6 +26,7 @@ class Ui_ClassificationReportWindow(object):
 
         self.classificationReport = None
         self.completeClassReport = None
+        self.fileName = None
 
         self.centralwidget = QtWidgets.QWidget(ClassificationReportWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -172,14 +174,25 @@ class Ui_ClassificationReportWindow(object):
         self.weightedAverageLabel.setObjectName("weightedAverageLabel")
         self.gridLayout.addWidget(self.weightedAverageLabel, 11, 0, 1, 1)
         self.verticalLayout.addWidget(self.tableFrame)
-        self.LoadButton = QtWidgets.QPushButton(self.mainFrame, clicked=lambda: self.load())
-        self.LoadButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.LoadButton.setObjectName("LoadButton")
-        self.verticalLayout.addWidget(self.LoadButton)
-        self.saveButton = QtWidgets.QPushButton(self.mainFrame, clicked=lambda: self.saveToTextFile())
+        self.LoadTextButton = QtWidgets.QPushButton(self.mainFrame, clicked=lambda: self.load())
+        self.LoadTextButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.LoadTextButton.setObjectName("LoadTextButton")
+        self.verticalLayout.addWidget(self.LoadTextButton)
+        self.saveFrame = QtWidgets.QFrame(self.mainFrame)
+        self.saveFrame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.saveFrame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.saveFrame.setObjectName("saveFrame")
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.saveFrame)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.lineEdit = QtWidgets.QLineEdit(self.saveFrame)
+        self.lineEdit.setAlignment(QtCore.Qt.AlignCenter)
+        self.lineEdit.setObjectName("lineEdit")
+        self.verticalLayout_2.addWidget(self.lineEdit)
+        self.saveButton = QtWidgets.QPushButton(self.saveFrame, clicked=lambda: self.saveToTextFile())
         self.saveButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.saveButton.setObjectName("saveButton")
-        self.verticalLayout.addWidget(self.saveButton)
+        self.verticalLayout_2.addWidget(self.saveButton)
+        self.verticalLayout.addWidget(self.saveFrame)
         self.horizontalLayout.addWidget(self.mainFrame)
         ClassificationReportWindow.setCentralWidget(self.centralwidget)
 
@@ -252,10 +265,12 @@ class Ui_ClassificationReportWindow(object):
         self.innerLabel8.setText(_translate("ClassificationReportWindow", ""))
         self.weightedAverageLabel.setAccessibleName(_translate("ClassificationReportWindow", "outerLabel"))
         self.weightedAverageLabel.setText(_translate("ClassificationReportWindow", "Weighted Average"))
+        self.LoadTextButton.setAccessibleName(_translate("ClassificationReportWindow", "LoadTextButton"))
+        self.LoadTextButton.setText(_translate("ClassificationReportWindow", "Load"))
+        self.saveFrame.setAccessibleName(_translate("ClassificationReportWindow", "saveFrame"))
+        self.lineEdit.setPlaceholderText(_translate("ClassificationReportWindow", "Type here the name of the file in which you want to save the result"))
         self.saveButton.setAccessibleName(_translate("ClassificationReportWindow", "saveButton"))
         self.saveButton.setText(_translate("ClassificationReportWindow", "Save"))
-        self.LoadButton.setAccessibleName(_translate("ClassificationReportWindow", "LoadButton"))
-        self.LoadButton.setText(_translate("ClassificationReportWindow", "Load"))
 
     def load(self):
         self.innerLabel1.setText(self.classificationReport[5])
@@ -289,15 +304,27 @@ class Ui_ClassificationReportWindow(object):
         self.innerLabel10.setText('')
 
     def saveToTextFile(self):
-        f = open('ClassificationReport.txt', 'w+')
-        f.write(self.completeClassReport)
-        self.textFileCreated()
+        self.fileName = self.lineEdit.text()
+        if self.fileName != '':
+            f = open(f'{self.fileName}.txt', 'w+')
+            f.write(self.completeClassReport)
+            self.textFileCreated()
+        else:
+            self.noFilePopUp()
 
     def textFileCreated(self):
         msg = QMessageBox()
         msg.setWindowTitle("Info")
-        msg.setText("Data saved to the ClassificationReport.txt file")
+        msg.setText(f"Data saved to the {self.fileName}.txt file")
         msg.setIcon(QMessageBox.Information)
+        msg.setStandardButtons(QMessageBox.Ok)
+        x = msg.exec_()
+
+    def noFilePopUp(self):
+        msg = QMessageBox()
+        msg.setWindowTitle("Error")
+        msg.setText(f"Choose the name of the file in order to proceed!")
+        msg.setIcon(QMessageBox.Critical)
         msg.setStandardButtons(QMessageBox.Ok)
         x = msg.exec_()
 

@@ -28,7 +28,11 @@ QFrame[accessibleName=&quot;titleFrame&quot;],QFrame[accessibleName=&quot;tableF
 	background-color:rgb(244, 244, 244);
 }
 
-QPushButton[accessibleName=&quot;saveButton&quot;]{
+QFrame[accessibleName=&quot;saveFrame&quot;]{
+	background-color:rgb(244, 244, 244);
+}
+
+QPushButton[accessibleName=&quot;saveButton&quot;],QPushButton[accessibleName=&quot;LoadTextButton&quot;]{
 	background:rgb(27, 134, 151);
 	border-radius:10px;
 	padding:20%;
@@ -37,7 +41,7 @@ QPushButton[accessibleName=&quot;saveButton&quot;]{
 	color:white;
 }
 
-QPushButton[accessibleName=&quot;saveButton&quot;]:hover{
+QPushButton[accessibleName=&quot;saveButton&quot;]:hover,QPushButton[accessibleName=&quot;LoadTextButton&quot;]:hover{
 	background:rgb(15, 100, 117);
 	border-radius:10px;
 	padding:15%;
@@ -67,6 +71,20 @@ QLabel[accessibleName=&quot;innerLabel&quot;]{
 	color:rgb(27, 134, 151);
 	padding:10px;
 	background-color:rgb(244, 244, 244);
+}
+
+QLineEdit{	
+	margin-left:10px;
+	margin-right:10px;
+	background-color:white;
+	border-radius:10px;
+	padding: 10%;
+}
+
+QLineEdit:hover{
+	background-color:rgb(223, 223, 223);
+	border-radius:10px;
+	padding: 10%;
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -508,16 +526,54 @@ QLabel[accessibleName=&quot;innerLabel&quot;]{
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="saveButton">
+        <widget class="QPushButton" name="LoadTextButton">
          <property name="cursor">
           <cursorShape>PointingHandCursor</cursorShape>
          </property>
          <property name="accessibleName">
-          <string>saveButton</string>
+          <string>LoadTextButton</string>
          </property>
          <property name="text">
-          <string>Save</string>
+          <string>Load</string>
          </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="saveFrame">
+         <property name="accessibleName">
+          <string>saveFrame</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <widget class="QLineEdit" name="lineEdit">
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="placeholderText">
+             <string>Type here the name of the file in which you want to save the result</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="saveButton">
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="accessibleName">
+             <string>saveButton</string>
+            </property>
+            <property name="text">
+             <string>Save</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </widget>
        </item>
       </layout>

@@ -10,12 +10,14 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PySide2.QtWidgets import *
+import pandas as pd
+from pandas import DataFrame
 
 
 class Ui_CheckResultsWindow(object):
     def setupUi(self, CheckResultsWindow):
         CheckResultsWindow.setObjectName("CheckResultsWindow")
-        CheckResultsWindow.resize(858, 793)
+        CheckResultsWindow.resize(1450, 900)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("../Facultate/Licenta/dot-crossed_icon-icons.com_68558.ico"), QtGui.QIcon.Normal,
                        QtGui.QIcon.Off)
@@ -31,6 +33,12 @@ class Ui_CheckResultsWindow(object):
         self.vectors = None
         self.noSV = None
         self.coef = None
+        self.X_class0 = None
+        self.X_class1 = None
+        self.y_class0 = None
+        self.y_class1 = None
+        self.randomX = None
+        self.randomy = None
 
         self.centralwidget = QtWidgets.QWidget(CheckResultsWindow)
         self.centralwidget.setStyleSheet("")
@@ -41,25 +49,14 @@ class Ui_CheckResultsWindow(object):
         self.bodyFrame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.bodyFrame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.bodyFrame.setObjectName("bodyFrame")
-        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.bodyFrame)
-        self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.titleFrame = QtWidgets.QFrame(self.bodyFrame)
-        self.titleFrame.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.titleFrame.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.titleFrame.setObjectName("titleFrame")
-        self.horizontalLayout = QtWidgets.QHBoxLayout(self.titleFrame)
-        self.horizontalLayout.setObjectName("horizontalLayout")
-        self.titleLabel = QtWidgets.QLabel(self.titleFrame)
-        self.titleLabel.setAlignment(QtCore.Qt.AlignCenter)
-        self.titleLabel.setObjectName("titleLabel")
-        self.horizontalLayout.addWidget(self.titleLabel)
-        self.verticalLayout_2.addWidget(self.titleFrame)
+        self.gridLayout = QtWidgets.QGridLayout(self.bodyFrame)
+        self.gridLayout.setObjectName("gridLayout")
         self.scrollArea = QtWidgets.QScrollArea(self.bodyFrame)
         self.scrollArea.setStyleSheet("")
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 794, 603))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1047, 603))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
@@ -106,27 +103,63 @@ class Ui_CheckResultsWindow(object):
         self.coefTextLabel.setObjectName("coefTextLabel")
         self.verticalLayout_3.addWidget(self.coefTextLabel)
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
-        self.verticalLayout_2.addWidget(self.scrollArea)
+        self.gridLayout.addWidget(self.scrollArea, 1, 0, 1, 1)
+        self.titleFrame = QtWidgets.QFrame(self.bodyFrame)
+        self.titleFrame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.titleFrame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.titleFrame.setObjectName("titleFrame")
+        self.horizontalLayout = QtWidgets.QHBoxLayout(self.titleFrame)
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.titleLabel = QtWidgets.QLabel(self.titleFrame)
+        self.titleLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.titleLabel.setObjectName("titleLabel")
+        self.horizontalLayout.addWidget(self.titleLabel)
+        self.gridLayout.addWidget(self.titleFrame, 0, 0, 1, 1)
         self.LoadTextButton = QtWidgets.QPushButton(self.bodyFrame, clicked=lambda: self.loadText())
         self.LoadTextButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.LoadTextButton.setObjectName("LoadTextButton")
-        self.verticalLayout_2.addWidget(self.LoadTextButton)
-        self.saveFrame = QtWidgets.QFrame(self.bodyFrame)
-        self.saveFrame.setMinimumSize(QtCore.QSize(0, 120))
+        self.gridLayout.addWidget(self.LoadTextButton, 2, 0, 1, 1)
+        self.frame = QtWidgets.QFrame(self.bodyFrame)
+        self.frame.setMinimumSize(QtCore.QSize(0, 200))
+        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame.setObjectName("frame")
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.frame)
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        self.saveFrame = QtWidgets.QFrame(self.frame)
+        self.saveFrame.setMinimumSize(QtCore.QSize(0, 150))
         self.saveFrame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.saveFrame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.saveFrame.setObjectName("saveFrame")
         self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.saveFrame)
         self.verticalLayout_4.setObjectName("verticalLayout_4")
         self.lineEdit = QtWidgets.QLineEdit(self.saveFrame)
-        self.lineEdit.setObjectName("lineEdit")
+        self.lineEdit.setFrame(True)
         self.lineEdit.setAlignment(QtCore.Qt.AlignCenter)
+        self.lineEdit.setObjectName("lineEdit")
         self.verticalLayout_4.addWidget(self.lineEdit)
         self.saveTextButton = QtWidgets.QPushButton(self.saveFrame, clicked=lambda: self.saveToTextFile())
         self.saveTextButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.saveTextButton.setObjectName("saveTextButton")
         self.verticalLayout_4.addWidget(self.saveTextButton)
-        self.verticalLayout_2.addWidget(self.saveFrame)
+        self.horizontalLayout_2.addWidget(self.saveFrame)
+        self.saveToCSVFrame = QtWidgets.QFrame(self.frame)
+        self.saveToCSVFrame.setMinimumSize(QtCore.QSize(0, 150))
+        self.saveToCSVFrame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.saveToCSVFrame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.saveToCSVFrame.setObjectName("saveToCSVFrame")
+        self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.saveToCSVFrame)
+        self.verticalLayout_5.setObjectName("verticalLayout_5")
+        self.lineEdit_2 = QtWidgets.QLineEdit(self.saveToCSVFrame)
+        self.lineEdit_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.lineEdit_2.setObjectName("lineEdit_2")
+        self.verticalLayout_5.addWidget(self.lineEdit_2)
+        self.saveCSVButton = QtWidgets.QPushButton(self.saveToCSVFrame, clicked=lambda: self.saveToCsvFile())
+        self.saveCSVButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.saveCSVButton.setObjectName("saveCSVButton")
+        self.verticalLayout_5.addWidget(self.saveCSVButton)
+        self.horizontalLayout_2.addWidget(self.saveToCSVFrame)
+        self.gridLayout.addWidget(self.frame, 3, 0, 1, 1)
         self.verticalLayout.addWidget(self.bodyFrame)
         CheckResultsWindow.setCentralWidget(self.centralwidget)
 
@@ -137,9 +170,6 @@ class Ui_CheckResultsWindow(object):
         _translate = QtCore.QCoreApplication.translate
         CheckResultsWindow.setWindowTitle(_translate("CheckResultsWindow", "SVM Visualizer"))
         self.bodyFrame.setAccessibleName(_translate("CheckResultsWindow", "bodyFrame"))
-        self.titleFrame.setAccessibleName(_translate("CheckResultsWindow", "titleFrame"))
-        self.titleLabel.setAccessibleName(_translate("CheckResultsWindow", "titleLabel"))
-        self.titleLabel.setText(_translate("CheckResultsWindow", "SVM Visualizer"))
         self.wLabel.setAccessibleName(_translate("CheckResultsWindow", "wLabel"))
         self.wLabel.setText(_translate("CheckResultsWindow", "Weights assigned to the features:"))
         self.wTextLabel.setAccessibleName(_translate("CheckResultsWindow", "wTextLabel"))
@@ -159,13 +189,21 @@ class Ui_CheckResultsWindow(object):
         self.coefLabel.setText(
             _translate("CheckResultsWindow", "Dual coefficients of the support vector in the decision function"))
         self.coefTextLabel.setAccessibleName(_translate("CheckResultsWindow", "coefTextLabel"))
+        self.titleFrame.setAccessibleName(_translate("CheckResultsWindow", "titleFrame"))
+        self.titleLabel.setAccessibleName(_translate("CheckResultsWindow", "titleLabel"))
+        self.titleLabel.setText(_translate("CheckResultsWindow", "SVM Visualizer"))
         self.LoadTextButton.setAccessibleName(_translate("CheckResultsWindow", "LoadTextButton"))
         self.LoadTextButton.setText(_translate("CheckResultsWindow", "Load"))
         self.saveFrame.setAccessibleName(_translate("CheckResultsWindow", "saveFrame"))
         self.lineEdit.setPlaceholderText(
             _translate("CheckResultsWindow", "Type here the name of the file in which you want to save the result"))
         self.saveTextButton.setAccessibleName(_translate("CheckResultsWindow", "saveTextButton"))
-        self.saveTextButton.setText(_translate("CheckResultsWindow", "Save"))
+        self.saveTextButton.setText(_translate("CheckResultsWindow", "Save result to a TXT file"))
+        self.saveToCSVFrame.setAccessibleName(_translate("CheckResultsWindow", "saveToCSVFrame"))
+        self.lineEdit_2.setPlaceholderText(
+            _translate("CheckResultsWindow", "Type here the name of the CSV file in which you want to save the result"))
+        self.saveCSVButton.setAccessibleName(_translate("CheckResultsWindow", "saveTextButton"))
+        self.saveCSVButton.setText(_translate("CheckResultsWindow", "Save data to a CSV file"))
 
     def loadText(self):
         self.wTextLabel.setText(str(self.w))
@@ -177,27 +215,75 @@ class Ui_CheckResultsWindow(object):
 
     def saveToTextFile(self):
         givenFileName = self.lineEdit.text()
-        f = open(f'{givenFileName}.txt', 'w+')
-        f.write('Weights assigned to the features:\n')
-        f.write(self.w)
-        f.write('\nConstants in the decision function:\n')
-        f.write(self.b)
-        f.write('\nIndices of support vectors:\n')
-        f.write(self.indices)
-        f.write('\nSupport vectors:\n')
-        f.write(self.vectors)
-        f.write('\nNumber of support vectors for each class:\n')
-        f.write(self.noSV)
-        f.write('\nDual coefficients of the support vector in the decision function:\n')
-        f.write(self.coef)
-        f.close()
-        self.textFileCreated(givenFileName)
+        if givenFileName != '':
+            f = open(f'{givenFileName}.txt', 'w+')
+            f.write('Weights assigned to the features:\n')
+            f.write(self.w)
+            f.write('\nConstants in the decision function:\n')
+            f.write(self.b)
+            f.write('\nIndices of support vectors:\n')
+            f.write(self.indices)
+            f.write('\nSupport vectors:\n')
+            f.write(self.vectors)
+            f.write('\nNumber of support vectors for each class:\n')
+            f.write(self.noSV)
+            f.write('\nDual coefficients of the support vector in the decision function:\n')
+            f.write(self.coef)
+            f.close()
+            self.textFileCreated(givenFileName)
+        else:
+            self.noFilePopUp()
 
     def textFileCreated(self, givenFileName):
         msg = QMessageBox()
-        msg.setWindowTitle("Info")
+        msg.setWindowTitle("Saved")
         msg.setText(f"Data saved to the {givenFileName}.txt file")
         msg.setIcon(QMessageBox.Information)
+        msg.setStandardButtons(QMessageBox.Ok)
+        x = msg.exec_()
+
+    def csvFileCreated(self, givenFileName):
+        msg = QMessageBox()
+        msg.setWindowTitle("Saved")
+        msg.setText(f"Data saved to the {givenFileName}.csv file")
+        msg.setIcon(QMessageBox.Information)
+        msg.setStandardButtons(QMessageBox.Ok)
+        x = msg.exec_()
+
+    def noFilePopUp(self):
+        msg = QMessageBox()
+        msg.setWindowTitle("Error")
+        msg.setText(f"Choose the name of the file in order to proceed!")
+        msg.setIcon(QMessageBox.Critical)
+        msg.setStandardButtons(QMessageBox.Ok)
+        x = msg.exec_()
+
+    def saveToCsvFile(self):
+        fileName = self.lineEdit_2.text()
+        if fileName != '':
+            if self.randomX is not None:
+                data = DataFrame(
+                    dict(Target=self.randomy, FirstFeature=self.randomX[:, 0], SecondFeature=self.randomX[:, 1]))
+                targetName = []
+                for row in data['Target']:
+                    if row == 0:
+                        targetName.append('Class0')
+                    elif row == 1:
+                        targetName.append('Class1')
+                data['TargetName'] = targetName
+                data = data.reindex(columns=['TargetName','Target','FirstFeature','SecondFeature'])
+                data.to_csv(f"{fileName}.csv", index=False)
+                self.csvFileCreated(fileName)
+            else:
+                self.noRandomData()
+        else:
+            self.noFilePopUp()
+
+    def noRandomData(self):
+        msg = QMessageBox()
+        msg.setWindowTitle("Error")
+        msg.setText("This feature is only available for randomly generated data")
+        msg.setIcon(QMessageBox.Critical)
         msg.setStandardButtons(QMessageBox.Ok)
         x = msg.exec_()
 
